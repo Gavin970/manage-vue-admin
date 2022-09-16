@@ -30,30 +30,6 @@ const menus = [
   }
 ]
 
-const demos = [
-  {
-    _id: '6281cf1b1424d9aa31b7a234',
-    path: '/demo/demo1',
-    name: 'Demo1',
-    icon: 'goods',
-    title: '戴莫1'
-  },
-  {
-    _id: '6281cf1b1424d9aa31b7a234',
-    path: '/demo/demo2',
-    name: 'Demo2',
-    icon: 'goods',
-    title: '戴莫2'
-  },
-  {
-    _id: '6281cf1b1424d9aa31b7a234',
-    path: '/demo/demo3',
-    name: 'Demo3',
-    icon: 'goods',
-    title: '戴莫3'
-  }
-]
-
 const admin = {
   userName: 'admin',
   password: '123456',
@@ -136,7 +112,7 @@ export default [
       return {
         code: 0,
         msg: 'success',
-        data: demos
+        data: menus
       }
     }
   },

@@ -3,9 +3,23 @@
     <div class="left">
       <h1 style="color: #2d8cf0">我是首页</h1>
       <div class="tab columnCS">
-        <router-link class="tab-nav" to="/home/demoOne">戴莫1</router-link>
-        <router-link class="tab-nav" to="/home/demoTwo">戴莫2</router-link>
-        <router-link class="tab-nav" to="/home/demoThree">戴莫3</router-link>
+        <!--        <div v-for="(items,index) in routers[1].children" :key="index">-->
+        <!--          <div v-if="items.children">-->
+        <!--            <div>{{ items.title }}</div>-->
+        <!--            <div v-for="(item,index) in items.children" :key="index">-->
+        <!--              <router-link :to="'/home/'+items.path+'/'+item.path" class="tab-nav child">{{ item.title
+        }}</router-link>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--          <div v-else>-->
+        <!--            <router-link :to="'/home/'+items.path" class="tab-nav">{{ items.title }}</router-link>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <div v-for="(items,index) in routers[1].children" :key="index">
+          <div>
+            <router-link :to="'/home/'+items.path" class="tab-nav">{{ items.title }}</router-link>
+          </div>
+        </div>
       </div>
     </div>
     <div class="right">
@@ -18,14 +32,15 @@
 </template>
 
 <script setup>
-
+import routers from '@/router/routers.js'
 </script>
 
 <style lang="scss" scoped>
 .left {
   width: 300px;
   height: 100%;
-  background-color: #191a23;
+  font-size: 20px;
+  border-right: 1px solid #000;
 
   .tab {
     margin: 20px;
@@ -33,9 +48,12 @@
     .tab-nav {
       margin-bottom: 10px;
       width: 200px;
-      border: 1px solid #ddd;
       font-size: 20px;
-      color: #fff;
+      color: #000;
+    }
+
+    .child {
+      margin-left: 10px;
     }
   }
 }
