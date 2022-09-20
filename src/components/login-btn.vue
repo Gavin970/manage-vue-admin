@@ -5,9 +5,9 @@
 <script setup>
 import api from '@/api'
 import router from "../router/index.js";
-// import {useRouter} from 'vue-router'
-//
-// const router = useRouter()
+import {useStore} from "@/store";
+
+const store = useStore();
 
 const props = defineProps({
   userName: {
@@ -26,7 +26,8 @@ function login() {
     password: props.password
   }).then(
     res => {
-      console.log('res：', res);
+      console.log('res：', res)
+      store.user.setUserInfo(res)
       localStorage.setItem('token', res.token)
       localStorage.setItem('type', res.type)
       router.push({name: 'Home'})

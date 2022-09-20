@@ -7,7 +7,6 @@
       <el-header class="el-header">
         <Header/>
       </el-header>
-      <!--      <el-main class="el-main"><router-view /></el-main>-->
       <el-main class="el-main">
         <Content/>
       </el-main>
@@ -15,7 +14,10 @@
   </el-container>
 </template>
 
-<script lang="ts" setup>
+<script setup>
+import Menu from './Menu/index.vue'
+import Header from './Header/index.vue'
+import Content from './Content/index.vue'
 </script>
 
 <style lang="scss" scoped>

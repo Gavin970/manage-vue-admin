@@ -1,5 +1,7 @@
 import {createRouter, createWebHashHistory} from "vue-router";
 import routes from './routers'
+import {useStore} from "@/store";
+
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -13,6 +15,7 @@ const LOGIN_STATE = {
 }
 
 router.beforeEach((to, from, next) => {
+  const store = useStore()
   const token = localStorage.getItem('token')
   // 未登录跳转登录页
   if (!token && to.name === LOGIN_STATE.IS_LOGIN) {
