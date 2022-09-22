@@ -60,7 +60,6 @@ request.requestEnd = (config) => {
 request.dataFactory = (res) => {
   if (res.status === 200 && res.data) {
     const {code, data, msg} = res.data
-    console.log(msg)
     if (code === 0) {
       return data;
     } else {

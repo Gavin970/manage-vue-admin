@@ -38,3 +38,12 @@ const Routers = [
 ]
 
 export default Routers
+
+// 动态路由处理
+export const generatorRouters = [
+  {
+    path: '/home',
+    name: 'Home',
+    component: () => import('@/views/home/index.vue'),
+  }
+]

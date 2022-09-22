@@ -7,7 +7,7 @@ const menus = [
     pid: 0,
     path: '/book',
     name: 'Book',
-    icon: 'goods',
+    icon: 'Document',
     title: '书籍管理'
   },
   {
@@ -16,7 +16,7 @@ const menus = [
     pid: 3,
     path: '/book/list',
     name: 'BookList',
-    icon: 'AddLocation',
+    icon: 'Files',
     title: '书籍列表'
   },
   {
