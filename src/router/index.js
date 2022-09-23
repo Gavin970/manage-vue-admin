@@ -34,6 +34,7 @@ router.beforeEach(async (to, from, next) => {
   }
   // 已登录跳转非登录页
   else if (token && to.name !== LOGIN_STATE.IS_LOGIN) {
+    // 进入时，如果没有获取导航菜单，就去调用接口获取一遍
     if (store.layout.menuList.length === 0) {
       await store.layout.getMenuList()
       const newRoutes = generateRouter(store.layout.userRouters)
@@ -49,8 +50,9 @@ router.beforeEach(async (to, from, next) => {
 })
 export default router
 
+// 将获取到的导航菜单，转换为路由，并添加到路由中
 const generateRouter = (userRouters) => {
-  const newRouters = userRouters.map((router) => {
+  return userRouters.map((router) => {
     const isParent = router.pid === 0 && router.children
     const routes = {
       path: router.path,
@@ -67,5 +69,4 @@ const generateRouter = (userRouters) => {
     }
     return routes
   })
-  return newRouters
 }
